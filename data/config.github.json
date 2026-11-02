@@ -35,179 +35,116 @@
   "sources": {
     "github": [
       {
-        "type": "user_events",
-        "username": "karpathy",
-        "enabled": true,
-        "profile": "tech-news"
+        "name": "GitHub Trending",
+        "url": "https://github.com/trending?since=daily",
+        "enabled": true
       },
       {
-        "type": "repo_releases",
-        "owner": "vllm-project",
-        "repo": "vllm",
-        "enabled": true,
-        "profile": "tech-news"
+        "name": "GitHub Trending (Weekly)",
+        "url": "https://github.com/trending?since=weekly",
+        "enabled": false
       },
       {
-        "type": "repo_releases",
-        "owner": "sgl-project",
-        "repo": "sglang",
-        "enabled": true,
-        "profile": "tech-news"
-      },
-      {
-        "type": "repo_releases",
-        "owner": "triton-lang",
-        "repo": "triton",
-        "enabled": true,
-        "profile": "tech-news"
-      }
-    ],
-    "hackernews": {
-      "enabled": true,
-      "fetch_top_stories": 30,
-      "min_score": 150,
-      "profile": "tech-news"
-    },
-    "rss": [
-      {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/atom/everything/",
-        "enabled": true,
-        "category": "ai-tools",
-        "profile": "tech-news"
-      },
-      {
-        "name": "vLLM Blog",
-        "url": "https://vllm.ai/blog/rss.xml",
-        "enabled": true,
-        "category": "llm-inference",
-        "profile": "tech-blog",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "Sean Goedecke",
-        "url": "https://www.seangoedecke.com/rss.xml",
-        "enabled": true,
-        "category": "software-engineering",
-        "profile": "tech-blog",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "CNBC Finance",
-        "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "enabled": true,
-        "category": "finance",
-        "profile": "finance-news",
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "GitHub Trending - Daily",
-        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
-        "enabled": true,
-        "category": "github-trending",
-        "profile": "tech-news"
-      },
-      {
-        "name": "Semianalysis",
-        "url": "https://newsletter.semianalysis.com/feed",
-        "enabled": true,
-        "category": "semiconductors",
-        "profile": "tech-news"
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/rss",
+        "enabled": true
       },
       {
         "name": "LWN.net",
-        "url": "https://lwn.net/headlines/full_text?key=${LWN_KEY}",
-        "enabled": true,
-        "category": "linux-kernel",
-        "profile": "tech-news"
+        "url": "https://lwn.net/headlines/rss",
+        "enabled": false
+      },
+      {
+        "name": "Slashdot",
+        "url": "https://rss.slashdot.org/Slashdot/slashdotMain",
+        "enabled": true
       }
     ],
-    "reddit": {
-      "enabled": true,
-      "subreddits": [
-        {
-          "subreddit": "MachineLearning",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 60,
-          "profile": "tech-news"
-        },
-        {
-          "subreddit": "LocalLLaMA",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 60,
-          "profile": "tech-news"
-        }
-      ],
-      "users": [],
-      "fetch_comments": 10
-    },
-    "telegram": {
-      "enabled": true,
-      "channels": [
-        {
-          "channel": "zaihuapd",
-          "enabled": true,
-          "fetch_limit": 20,
-          "profile": ["tech-news", "finance-news"]
-        }
-      ]
-    }
-  },
-  "collection": {
-    "time_window_hours": 24
-  },
-  "digest": {
-    "max_items": null,
-    "profile_order": [
-      "tech-news",
-      "tech-blog",
-      "finance-news"
+    "rss": [
+      {
+        "name": "TLDR",
+        "url": "https://tldr.tech/tech/rss",
+        "enabled": true
+      },
+      {
+        "name": "The Hacker News",
+        "url": "https://thehackernews.com/feeds/posts/default",
+        "enabled": true
+      },
+      {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/rss",
+        "enabled": true
+      },
+      {
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com/feed/",
+        "enabled": true
+      },
+      {
+        "name": "Ars Technica",
+        "url": "https://feeds.arstechnica.com/arstechnica/index",
+        "enabled": true
+      },
+      {
+        "name": "InfoQ",
+        "url": "https://www.infoq.com/feed",
+        "enabled": true
+      }
     ],
-    "category_groups": {},
-    "default_group": "other",
-    "default_group_limit": null
+    "custom": [
+      {
+        "name": "Medium Daily Digest",
+        "url": "https://medium.com/feed/daily-digest",
+        "enabled": false
+      },
+      {
+        "name": "Dev.to",
+        "url": "https://dev.to/feed",
+        "enabled": false
+      }
+    ]
   },
   "webhook": {
-    "enabled": true,
-    "url_env": "HORIZON_WEBHOOK_URL",
-    "delivery": "summary_and_items",
-    "overview_position": "last",
-    "platform": "feishu",
-    "layout": "collapsible",
-    "fallback_layout": "markdown",
-    "languages": [
-      "zh"
-    ],
-    "request_body": {
-      "msg_type": "interactive",
-      "card": {
-        "schema": "2.0",
-        "config": {
-          "wide_screen_mode": true
-        },
-        "header": {
-          "title": {
-            "tag": "plain_text",
-            "content": "#{message_title}"
-          },
-          "template": "blue"
-        },
-        "body": {
-          "elements": [
-            {
-              "tag": "markdown",
-              "content": "#{summary}"
-            }
-          ]
-        }
-      }
+    "enabled": false
+  },
+  "email": {
+    "enabled": false,
+    "smtp": {
+      "host": "smtp.qq.com",
+      "port": 465,
+      "username": "",
+      "password_env": "SMTP_PASSWORD",
+      "use_ssl": true
     },
-    "headers": ""
+    "from_addr": "",
+    "to_addrs": []
+  },
+  "output": {
+    "dir": "output",
+    "filename_format": "%Y-%m-%d.md",
+    "archive": true
+  },
+  "schedule": {
+    "mode": "fixed",
+    "cron": "0 22 * * *",
+    "timezone": "Asia/Shanghai"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "output/horizon.log"
+  },
+  "retry": {
+    "max_attempts": 3,
+    "backoff_sec": 5
+  },
+  "storage": {
+    "type": "file",
+    "path": "data/state.json"
+  },
+  "translation": {
+    "enabled": false,
+    "target_language": "zh",
+    "preserve_original": true
   }
 }
